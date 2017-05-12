@@ -1,4 +1,3 @@
-
 function Pizzeria(name, address) {
   this.name = name;
   this.orders = [];
@@ -32,8 +31,6 @@ Pizza.prototype.calculatePizzaPrice = function () {
   this.finalPrice = this.basicPrice;
   for (var i = 0; i < this.toppings.length; i++) {
     this.finalPrice+=this.toppings[i].price;
-    console.log(this.toppings[i]);
-    console.log(this.finalPrice);
   }
   if (this.size === "medium") {
     this.finalPrice+=1;
@@ -56,6 +53,7 @@ Pizza.prototype.calculatePizzaPrice = function () {
 };
 
 Order.prototype.addOrderItem = function (orderItem) {
+  debugger;
   this.orderItems.push(orderItem);
 };
 
@@ -71,7 +69,8 @@ Pizzeria.prototype.addOrder = function (order) {
 };
 
 $(function () {
-  var customer = {};
+  var customer = new Order();
+  var pizza = new Pizza();
   $("#form-cust-info").submit(function (event) {
     event.preventDefault();
     var name = $("input#cust-name").val();
@@ -80,26 +79,37 @@ $(function () {
   });
 
   $("td.dough").click(function () {
-    // console.log(this);
-     alert ($(this).html());
-    var dough = $(this).html();
+    console.log(customer);
+    alert ($(this).html());
+    var dough = ($(this).html()).toLowerCase();
+    pizza.dough = dough;
+    console.log(pizza.dough);
+  });
 
-    $("td.size").click(function () {
-      var size = $(this).html();
+  $("td.size").click(function () {
+    size = ($(this).html()).toLowerCase();
+    pizza.size = size;
+  });
 
+  $("#topping-choose").submit(function (event) {
+    event.preventDefault();
+    console.log(customer);
+    $("input:checkbox[name=topping]:checked").each(function(){
+      var toppingName = ($($(this).siblings()[0]).text());
+      var toppingPrice = parseInt($(this).val());
+      pizza.addTopping(toppingName, toppingPrice);
+      pizza.calculatePizzaPrice();
     });
-    $("#topping-choose").submit(function (event) {
-      event.preventDefault();
+  });
 
-      $("input:checkbox[name=topping]:checked").each(function(){
-        var toppingName = ($($(this).siblings()[0]).text());
-        var toppingPrice = parseInt($(this).val());
-      });
+  $("#add-to-cart").click(function () {
+    customer.addOrderItem(pizza);
+    customer.calculateOrderPrice();
+    console.log(customer);
+  });
 
-      });
-    });
 
-  $("")
+
 });
 
 // var shop = new Pizzeria ("myPizzeria", "2139 W.Burnside");
