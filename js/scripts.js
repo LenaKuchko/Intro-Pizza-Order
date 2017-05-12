@@ -71,9 +71,12 @@ Pizzeria.prototype.addOrder = function (order) {
 };
 
 $(function () {
-  $("#form").submit(function (event) {
+  var customer = {};
+  $("#form-cust-info").submit(function (event) {
     event.preventDefault();
-
+    var name = $("input#cust-name").val();
+    var address = $("input#cust-name").val();
+    customer = new Order(name);
   });
 
   $("td.dough").click(function () {
@@ -83,33 +86,37 @@ $(function () {
 
     $("td.size").click(function () {
       var size = $(this).html();
-      var pizza = new Pizza (dough, size);
+
     });
-  });
+    $("#topping-choose").submit(function (event) {
+      event.preventDefault();
 
+      $("input:checkbox[name=topping]:checked").each(function(){
+        var toppingName = ($($(this).siblings()[0]).text());
+        var toppingPrice = parseInt($(this).val());
+      });
 
+      });
+    });
 
-  $("topping-choose").submit(function () {
-    
-  });
   $("")
 });
 
-var shop = new Pizzeria ("myPizzeria", "2139 W.Burnside");
+// var shop = new Pizzeria ("myPizzeria", "2139 W.Burnside");
+//
+//
+// var pizza = new Pizza ("thin", "family");
+//
+// pizza.addTopping("cheese", 2);
+// pizza.addTopping("qwe", 4);
+// pizza.addTopping("rty", 6);
+// pizza.calculatePizzaPrice();
+//
+// var order = new Order ("Larry");
+//
+// order.addOrderItem(pizza);
+// order.addOrderItem(pizza);
 
-
-var pizza = new Pizza ("thin", "family");
-
-pizza.addTopping("cheese", 2);
-pizza.addTopping("qwe", 4);
-pizza.addTopping("rty", 6);
-pizza.calculatePizzaPrice();
-
-var order = new Order ("Larry");
-
-order.addOrderItem(pizza);
-order.addOrderItem(pizza);
-
-order.calculateOrderPrice();
-
- console.log(order);
+// order.calculateOrderPrice();
+//
+//  console.log(order);
