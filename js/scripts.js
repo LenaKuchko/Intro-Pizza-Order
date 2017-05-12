@@ -75,6 +75,8 @@ $(function () {
     event.preventDefault();
 
   });
+
+  $("")
 });
 
 var shop = new Pizzeria ("myPizzeria", "2139 W.Burnside");
