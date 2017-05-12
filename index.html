@@ -25,7 +25,6 @@
             <button type="submit" name="button">Create your own pizza</button>
           </form>
         </div>
-
         <div class="col-md-7">
         </div>
       </div>
@@ -33,28 +32,27 @@
       <div class="row">
 
           <div class="col-md-12">
-            <h1>Choose dough</h1>
-            <table class="dough" >
-              <tr >
-                <td class="dough">Thin</td>
-                <td class="dough">Original</td>
-                <td class="dough">Glutein Free</td>
-              </tr>
-            </table>
-            <table class="size">
-              <tr>
-                <td class="size">Medium</td>
-                <td class="size">Large</td>
-                <td class="size">Family</td>
-              </tr>
-            </table>
+            <form id="form-order" action="index.html" method="post">
+              <h1>Choose dough</h1>
+              <select id="dough" class="form-control">
+                <option value="thin">Thin</option>
+                <option value="original">Original</option>
+                <option value="glutein">Glutein Free</option>
+              </select>
+              <h1>Choose size</h1>
+              <select id="size" class="form-control">
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="family">Family</option>
+              </select>
+            <!-- </form> -->
           </div>
       </div>
 
 
       <div class="row">
         <div class="col-md-12">
-          <form id="topping-choose" class="toppings">
+          <!-- <form id="topping-choose" class="toppings"> -->
             <div class="row">
               <div class="col-md-3">
                 <div class="thumbnail">
@@ -85,9 +83,14 @@
                 </div>
               </div>
             </div>
-            <button id="" type="submit" name="button">Add toppings!</button>
+            <button id="add-to-cart" type="submit">Add to cart</button>
+            <!-- <button id="" type="submit" name="button">Add toppings!</button> -->
           </form>
-          <button id="add-to-cart" type="submit" name="button">Add to cart</button>
+
+
+          <button id="confirm" type="submit">Confirm order</button>
+          <button id="pay" type="submit">Review order</button>
+
         </div>
       </div>
 
@@ -123,5 +126,19 @@
           <td class="toppings"><img src="" alt="1"></td>
           <td class="toppings"><img src="" alt="1"></td>
           <td class="toppings"><img src="" alt="1"></td>
+        </tr>
+      </table> -->
+      <!-- <table class="dough" >
+        <tr>
+          <td class="dough">Thin</td>
+          <td class="dough">Original</td>
+          <td class="dough">Glutein Free</td>
+        </tr>
+      </table>
+      <table class="size">
+        <tr>
+          <td class="size">Medium</td>
+          <td class="size">Large</td>
+          <td class="size">Family</td>
         </tr>
       </table> -->

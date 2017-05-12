@@ -70,43 +70,54 @@ Pizzeria.prototype.addOrder = function (order) {
 
 $(function () {
   var customer = new Order();
-  var pizza = new Pizza();
+
   $("#form-cust-info").submit(function (event) {
     event.preventDefault();
     var name = $("input#cust-name").val();
     var address = $("input#cust-name").val();
     customer = new Order(name);
+
   });
 
-  $("td.dough").click(function () {
-    console.log(customer);
-    alert ($(this).html());
-    var dough = ($(this).html()).toLowerCase();
-    pizza.dough = dough;
-    console.log(pizza.dough);
-  });
+  // $("form-order").submit(function () {
+  //     var pizza = new Pizza();
+  // });
+  // $("td.dough").click(function () {
+  //   console.log(customer);
+  //   alert ($(this).html());
+  //   var dough = ($(this).html()).toLowerCase();
+  //   pizza.dough = dough;
+  //   console.log(pizza.dough);
+  // });
+  //
+  // $("td.size").click(function () {
+  //   size = ($(this).html()).toLowerCase();
+  //   pizza.size = size;
+  // });
 
-  $("td.size").click(function () {
-    size = ($(this).html()).toLowerCase();
-    pizza.size = size;
-  });
 
-  $("#topping-choose").submit(function (event) {
+  $("#form-order").submit(function (event) {
     event.preventDefault();
     console.log(customer);
+    var dough = $("#dough").val();
+    var size = $("#size").val();
+    var pizza = new Pizza(dough, size);
+
     $("input:checkbox[name=topping]:checked").each(function(){
       var toppingName = ($($(this).siblings()[0]).text());
       var toppingPrice = parseInt($(this).val());
       pizza.addTopping(toppingName, toppingPrice);
       pizza.calculatePizzaPrice();
+      customer.addOrderItem(pizza);
     });
+    console.log(customer);
   });
 
-  $("#add-to-cart").click(function () {
-    customer.addOrderItem(pizza);
+  $("#confirm").click(function () {
     customer.calculateOrderPrice();
     console.log(customer);
   });
+
 
 
 
