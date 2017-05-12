@@ -28,7 +28,7 @@ Pizza.prototype.addTopping = function (name, price) {
   this.toppings.push(topping);
 };
 
-Pizza.prototype.calculatePrice = function () {
+Pizza.prototype.calculatePizzaPrice = function () {
   this.finalPrice = this.basicPrice;
   for (var i = 0; i < this.toppings.length; i++) {
     this.finalPrice+=this.toppings[i].price;
@@ -85,7 +85,7 @@ var pizza = new Pizza ("thin", "family");
 pizza.addTopping("cheese", 2);
 pizza.addTopping("qwe", 4);
 pizza.addTopping("rty", 6);
-pizza.calculatePrice();
+pizza.calculatePizzaPrice();
 
 var order = new Order ("Larry");
 
