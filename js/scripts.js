@@ -67,10 +67,6 @@ Order.prototype.calculateOrderPrice = function () {
   return this.orderPrice;
 };
 
-Pizzeria.prototype.addOrder = function (order) {
-  this.orders.push(order);
-};
-
 $(function () {
   var customer = new Order();
 
@@ -79,7 +75,9 @@ $(function () {
     var name = $("input#cust-name").val();
     var address = $("input#cust-name").val();
     customer = new Order(name);
-
+    $(".basic-pizza").show();
+    $(".toppings").show();
+    $("#form-cust-info").hide();
   });
 
   $("#form-order").submit(function (event) {
@@ -97,7 +95,6 @@ $(function () {
       customer.addOrderItem(pizza);
       customer.calculateOrderPrice();
     });
-
 
     $("ul#review-orders").append("<li><span class='displayOrderItems'>" + pizza.size + "</span></li>");
 

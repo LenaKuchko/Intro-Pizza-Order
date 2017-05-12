@@ -9,7 +9,6 @@
   padding-bottom: 70px;
   padding-right: 30px;
   padding-left: 30px;
-
 }
 table {
   margin: 0 auto;
@@ -26,4 +25,7 @@ table {
 .thumbnail img {
   height: 168px;
   width: 252px;
+}
+.basic-pizza, .toppings {
+  display: none;
 }
