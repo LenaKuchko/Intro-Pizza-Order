@@ -51,7 +51,13 @@ Pizza.prototype.calculatePizzaPrice = function () {
   }
   return this.finalPrice;
 };
-
+Pizza.prototype.displayPizza = function () {
+  var display = "";
+  for (var i = 0; i < this.toppings.length; i++) {
+    display+=(this.toppings[i].name + ", ");
+  }
+  return display;
+};
 Order.prototype.addOrderItem = function (orderItem) {
   debugger;
   this.orderItems.push(orderItem);
@@ -79,6 +85,37 @@ $(function () {
 
   });
 
+  $("#form-order").submit(function (event) {
+    event.preventDefault();
+    console.log(customer);
+    var dough = $("#dough").val();
+    var size = $("#size").val();
+    var pizza = new Pizza(dough, size);
+
+    $("input:checkbox[name=topping]:checked").each(function(){
+      var toppingName = ($($(this).siblings()[0]).text());
+      var toppingPrice = parseInt($(this).val());
+      pizza.addTopping(toppingName, toppingPrice);
+      pizza.calculatePizzaPrice();
+      customer.addOrderItem(pizza);
+      customer.calculateOrderPrice();
+    });
+
+
+    $("ul#review-orders").append("<li><span class='displayOrderItems'>" + pizza.size + "</span></li>");
+
+    $(".displayOrderItems").last().click(function() {
+      $("#display-order-info").text("Your order is: " + pizza.size + " " + pizza.dough + " pizza. Ingridients: " + pizza.displayPizza());
+    });
+  });
+
+
+
+
+
+
+
+
   // $("form-order").submit(function () {
   //     var pizza = new Pizza();
   // });
@@ -96,27 +133,11 @@ $(function () {
   // });
 
 
-  $("#form-order").submit(function (event) {
-    event.preventDefault();
-    console.log(customer);
-    var dough = $("#dough").val();
-    var size = $("#size").val();
-    var pizza = new Pizza(dough, size);
 
-    $("input:checkbox[name=topping]:checked").each(function(){
-      var toppingName = ($($(this).siblings()[0]).text());
-      var toppingPrice = parseInt($(this).val());
-      pizza.addTopping(toppingName, toppingPrice);
-      pizza.calculatePizzaPrice();
-      customer.addOrderItem(pizza);
-    });
-    console.log(customer);
-  });
 
-  $("#confirm").click(function () {
-    customer.calculateOrderPrice();
-    console.log(customer);
-  });
+  // $("#confirm").click(function () {
+  //   console.log(customer);
+  // });
 
 
 

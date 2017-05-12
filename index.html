@@ -25,7 +25,14 @@
             <button type="submit" name="button">Create your own pizza</button>
           </form>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-3">
+          <ul id="review-orders">
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <p id="display-order-info">
+
+          </p>
         </div>
       </div>
 
@@ -66,19 +73,31 @@
               </div>
               <div class="col-md-3">
                 <div class="thumbnail">
-                  <img src="..." alt="...">
+                  <img src="img/mozzarella.jpg" alt="mozzarella">
                   <div class="caption">
-                    <p>Pot</p>
-                    <input type="checkbox" name="topping" value="3">
+                    <h3>mozzarella</h3>
+                    <p>$2</p>
+                    <input type="checkbox" name="topping" value="2">
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="thumbnail">
-                  <img src="..." alt="...">
+                  <img src="img/mozzarella.jpg" alt="mozzarella">
                   <div class="caption">
-                    <p>sfr</p>
-                    <input type="checkbox" name="topping" value="5">
+                    <h3>mozzarella</h3>
+                    <p>$2</p>
+                    <input type="checkbox" name="topping" value="2">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="thumbnail">
+                  <img src="img/mozzarella.jpg" alt="mozzarella">
+                  <div class="caption">
+                    <h3>mozzarella</h3>
+                    <p>$2</p>
+                    <input type="checkbox" name="topping" value="2">
                   </div>
                 </div>
               </div>
@@ -89,7 +108,7 @@
 
 
           <button id="confirm" type="submit">Confirm order</button>
-          <button id="pay" type="submit">Review order</button>
+          <button id="review" type="submit">Review order</button>
 
         </div>
       </div>
