@@ -18,3 +18,8 @@ table {
 .col-md-12 {
   text-align: center;
 }
+.toppings td {
+  height: 300px;
+  width: 300px;
+  padding: 0px;
+}

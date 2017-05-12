@@ -10,7 +10,7 @@ function Order(customerName) {
   this.orderPrice = 0;
 };
 
-function Pizza(size, dough) {
+function Pizza(dough, size) {
   this.size = size;
   this.dough = dough;
   this.basicPrice = 5;
@@ -76,6 +76,22 @@ $(function () {
 
   });
 
+  $("td.dough").click(function () {
+    // console.log(this);
+     alert ($(this).html());
+    var dough = $(this).html();
+
+    $("td.size").click(function () {
+      var size = $(this).html();
+      var pizza = new Pizza (dough, size);
+    });
+  });
+
+
+
+  $("topping-choose").submit(function () {
+    
+  });
   $("")
 });
 
