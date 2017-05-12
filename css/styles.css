@@ -23,3 +23,7 @@ table {
   width: 300px;
   padding: 0px;
 }
+.thumbnail img {
+  height: 168px;
+  width: 252px;
+}
