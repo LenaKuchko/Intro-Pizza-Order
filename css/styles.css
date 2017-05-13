@@ -1,31 +1,59 @@
- td {
-  text-align: center;
-  font-size: 70px;
-  height: 450px;
-  width: 350px;
-  border: 1px solid #B2E6D4;
-  color: #83E8BA;
-  padding-top: 70px;
-  padding-bottom: 70px;
-  padding-right: 30px;
-  padding-left: 30px;
+body {
+  font-family: 'Kreon', serif;
+  font-size: 25px;
+  background-color: #FCF9E3;
 }
-table {
-  margin: 0 auto;
 
-}
 .col-md-12 {
   text-align: center;
 }
-.toppings td {
-  height: 300px;
-  width: 300px;
-  padding: 0px;
-}
+
 .thumbnail img {
   height: 168px;
   width: 252px;
 }
+.thumbnail {
+  background-color: #D8E97D;
+  border: 1px solid #C2DD34;
+
+}
 .basic-pizza, .toppings {
   display: none;
+}
+
+.header {
+  font-family: 'Permanent Marker', cursive;
+  background-color: #C2DD34;
+  text-align: center;
+  font-size: 80px;
+  color: #5C573E;
+  padding: 10px;
+}
+.cust-info {
+  margin-top: 150px;
+}
+.btn, button {
+  background-color: #F08700;
+  border-radius: 5px;
+  font-size: 25px;
+}
+button:hover {
+  background-color: #DB7B00;
+}
+.footer {
+  font-family: 'Permanent Marker', cursive;
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:100px;
+  width:100%;
+  font-size: 60px;
+  background-color: #DB7B00;
+}
+#map {
+  height: 400px;
+  width: 100%;
+}
+.display-order {
+  margin-bottom: 100px;
 }

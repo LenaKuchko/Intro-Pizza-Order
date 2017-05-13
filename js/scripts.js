@@ -67,6 +67,21 @@ Order.prototype.calculateOrderPrice = function () {
   return this.orderPrice;
 };
 
+function initMap() {
+   debugger;
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: {lat: -34.397, lng: 150.644},
+    mapTypeId: 'terrain'
+  });
+  marker = new google.maps.Marker({
+    position: zoo,
+    map: map
+  });
+}
+
+
 $(function () {
   var customer = new Order();
 
