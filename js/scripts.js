@@ -114,9 +114,14 @@ $(function () {
 
     customer.addOrderItem(pizza);
     customer.calculateOrderPrice();
+    
     console.log(customer);
 
     $("ul#review-orders").append("<li><span class='displayOrderItems'>" + pizza.size + "</span></li>");
+    // $("ul#review-orders").append("<li><span class='displayOrderItems'><a href='#display-order-info' data-toggle='popover' title='Popover Header'" +
+    //  "data-content='Some content inside the popover'>" + pizza.size + "</span></li></a>");
+
+    // $('[data-toggle="popover"]').popover();
 
     $(".displayOrderItems").last().click(function() {
       $("#display-order-info").text("Your order is: " + pizza.size + " " + pizza.dough + " pizza. Ingridients: " + pizza.displayPizza());

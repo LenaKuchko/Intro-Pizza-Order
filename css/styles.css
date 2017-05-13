@@ -20,6 +20,9 @@ body {
 .basic-pizza, .toppings {
   display: none;
 }
+.toppings {
+  margin-top: 15px;
+}
 
 .header {
   font-family: 'Permanent Marker', cursive;
@@ -55,6 +58,7 @@ button:hover {
   width: 100%;
 }
 .display-order {
+  margin-top: 15px;
   margin-bottom: 150px;
 }
 /*#review-orders{
