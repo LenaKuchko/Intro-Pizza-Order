@@ -61,14 +61,12 @@ Order.prototype.addOrderItem = function (orderItem) {
 };
 
 Order.prototype.calculateOrderPrice = function () {
-     for (var i = 0; i < this.orderItems.length; i++) {
-       this.orderPrice+=this.orderItems[i].finalPrice;
-     }
-  return this.orderPrice;
+  debugger;
+  return  this.orderPrice+=this.orderItems[this.orderItems.length-1].finalPrice;
 };
 
 function initMap() {
-   debugger;
+  //  debugger;
 
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
@@ -97,24 +95,32 @@ $(function () {
 
   $("#form-order").submit(function (event) {
     event.preventDefault();
-    console.log(customer);
+
     var dough = $("#dough").val();
     var size = $("#size").val();
     var pizza = new Pizza(dough, size);
 
-    $("input:checkbox[name=topping]:checked").each(function(){
-      var toppingName = ($($(this).siblings()[0]).text());
-      var toppingPrice = parseInt($(this).val());
-      pizza.addTopping(toppingName, toppingPrice);
+    if ($("input:checkbox[name=topping]:checked").length<=0) {
+      console.log($("input:checkbox[name=topping]:checked").length);
       pizza.calculatePizzaPrice();
-      customer.addOrderItem(pizza);
-      customer.calculateOrderPrice();
-    });
+    } else {
+      $("input:checkbox[name=topping]:checked").each(function(){
+        var toppingName = ($($(this).siblings()[0]).text());
+        var toppingPrice = parseInt($(this).val());
+        pizza.addTopping(toppingName, toppingPrice);
+        pizza.calculatePizzaPrice();
+      });
+    }
+
+    customer.addOrderItem(pizza);
+    customer.calculateOrderPrice();
+    console.log(customer);
 
     $("ul#review-orders").append("<li><span class='displayOrderItems'>" + pizza.size + "</span></li>");
 
     $(".displayOrderItems").last().click(function() {
       $("#display-order-info").text("Your order is: " + pizza.size + " " + pizza.dough + " pizza. Ingridients: " + pizza.displayPizza());
+      $("#display-order-info").append("<p>Total cost is: " + customer.orderPrice + "</p>");
     });
   });
 
