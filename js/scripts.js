@@ -114,8 +114,6 @@ $(function () {
 
     customer.addOrderItem(pizza);
     customer.calculateOrderPrice();
-    
-    console.log(customer);
 
     $("ul#review-orders").append("<li><span class='displayOrderItems'>" + pizza.size + "</span></li>");
     // $("ul#review-orders").append("<li><span class='displayOrderItems'><a href='#display-order-info' data-toggle='popover' title='Popover Header'" +
