@@ -83,29 +83,33 @@ $(function () {
     alert ($(this).html());
     var dough = ($(this).html()).toLowerCase();
     pizza.dough = dough;
-    console.log(pizza.dough);
+    console.log(pizza);
   });
 
   $("td.size").click(function () {
     size = ($(this).html()).toLowerCase();
     pizza.size = size;
+    console.log(pizza);
   });
 
-  $("#topping-choose").submit(function (event) {
-    event.preventDefault();
-    console.log(customer);
+  // $("#topping-choose").submit(function (event) {
+  //   event.preventDefault();
+  //   console.log(customer);
+  //
+  // });
+
+  $("#add-to-cart").click(function () {
     $("input:checkbox[name=topping]:checked").each(function(){
       var toppingName = ($($(this).siblings()[0]).text());
       var toppingPrice = parseInt($(this).val());
       pizza.addTopping(toppingName, toppingPrice);
       pizza.calculatePizzaPrice();
+      console.log(pizza);
     });
-  });
-
-  $("#add-to-cart").click(function () {
     customer.addOrderItem(pizza);
     customer.calculateOrderPrice();
     console.log(customer);
+    pizza = new Pizza();
   });
 
 
